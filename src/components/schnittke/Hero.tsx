@@ -26,9 +26,9 @@ export const Hero = () => {
             position: "absolute",
             inset: 0,
             background: `
-              radial-gradient(ellipse at 18% 55%, rgba(0,0,0,0.82) 0%, transparent 70%),
-              radial-gradient(ellipse at 78% 18%, rgba(208,0,0,0.18) 0%, transparent 55%),
-              linear-gradient(180deg, #000000 0%, #0A0A0A 45%, #000000 100%)
+              radial-gradient(ellipse at 22% 60%, rgba(208,0,0,0.10) 0%, transparent 60%),
+              radial-gradient(ellipse at 78% 18%, rgba(0,0,0,0.06) 0%, transparent 55%),
+              linear-gradient(180deg, ${tokens.color.warmWhite} 0%, ${tokens.color.parchment} 45%, ${tokens.color.warmWhite} 100%)
             `,
           }}
         />
@@ -92,7 +92,7 @@ export const Hero = () => {
             fontFamily: fonts.display,
             fontSize: "clamp(38px, 6vw, 82px)",
             fontWeight: 500,
-            color: tokens.color.warmWhite,
+            color: tokens.color.ink,
             lineHeight: 1.08,
             maxWidth: 800,
             letterSpacing: -1,
@@ -114,7 +114,7 @@ export const Hero = () => {
             fontFamily: fonts.accent,
             fontSize: "clamp(18px, 2vw, 24px)",
             fontStyle: "italic",
-            color: "rgba(255,255,255,0.65)",
+            color: "rgba(0,0,0,0.62)",
             marginTop: 28,
             maxWidth: 520,
             lineHeight: 1.6,
@@ -138,7 +138,7 @@ export const Hero = () => {
             style={{
               padding: "16px 36px",
               background: tokens.color.gold,
-              color: tokens.color.deep,
+              color: tokens.color.warmWhite,
               fontFamily: fonts.body,
               fontSize: 13,
               fontWeight: 600,
@@ -149,9 +149,10 @@ export const Hero = () => {
               display: "flex",
               alignItems: "center",
               gap: 10,
+              boxShadow: "0 18px 45px rgba(208,0,0,0.22)",
             }}
           >
-            Veranstaltungen <ArrowRight size={16} color={tokens.color.deep} />
+            Veranstaltungen <ArrowRight size={16} color={tokens.color.warmWhite} />
           </MagneticButton>
 
           <MagneticButton
@@ -159,13 +160,13 @@ export const Hero = () => {
             style={{
               padding: "16px 36px",
               background: "transparent",
-              color: tokens.color.goldLight,
+              color: tokens.color.ink,
               fontFamily: fonts.body,
               fontSize: 13,
               fontWeight: 400,
               letterSpacing: 2,
               textTransform: "uppercase",
-              border: `1px solid rgba(255,255,255,0.28)`,
+              border: `1px solid rgba(0,0,0,0.18)`,
               cursor: "pointer",
             }}
           >
@@ -196,7 +197,7 @@ export const Hero = () => {
             fontFamily: fonts.body,
             fontSize: 10,
             letterSpacing: 3,
-            color: "rgba(255,255,255,0.35)",
+            color: "rgba(0,0,0,0.40)",
             textTransform: "uppercase",
           }}
         >

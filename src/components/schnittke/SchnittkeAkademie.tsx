@@ -61,7 +61,7 @@ export default function SchnittkeAkademie() {
         }
 
         .event-row {
-          border-bottom: 1px solid rgba(255,255,255,0.12);
+          border-bottom: 1px solid rgba(0,0,0,0.10);
           transition: background 0.3s ease;
           cursor: pointer;
         }

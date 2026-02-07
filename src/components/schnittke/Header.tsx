@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { navLinks } from "./data";
 import { List, MapPin, Phone, X } from "./icons";
 import { fonts, tokens } from "./theme";
+import { withBasePath } from "./withBasePath";
 
 export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -68,7 +69,7 @@ export const Header = () => {
           }}
         >
           <Image
-            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+            src={withBasePath("/Images/Logo/ASAI_Logo_web_navi.jpg")}
             alt="Alfred Schnittke Akademie International"
             width={110}
             height={40}
@@ -85,9 +86,7 @@ export const Header = () => {
                 href={l.href}
                 className="nav-link"
                 style={{
-                  color: scrolled
-                    ? tokens.color.slate
-                    : "rgba(255,255,255,0.85)",
+                  color: scrolled ? tokens.color.slate : tokens.color.ink,
                   transition: "color 0.5s",
                 }}
               >
@@ -109,7 +108,7 @@ export const Header = () => {
               border: `1px solid rgba(208,0,0,0.30)`,
               background: scrolled
                 ? "rgba(255,255,255,0.92)"
-                : "rgba(26,22,18,0.35)",
+                : "rgba(255,255,255,0.70)",
               backdropFilter: "blur(10px)",
               alignItems: "center",
               justifyContent: "center",
@@ -119,12 +118,12 @@ export const Header = () => {
             {mobileOpen ? (
               <X
                 size={22}
-                color={scrolled ? tokens.color.ink : tokens.color.warmWhite}
+                color={tokens.color.ink}
               />
             ) : (
               <List
                 size={22}
-                color={scrolled ? tokens.color.ink : tokens.color.warmWhite}
+                color={tokens.color.ink}
               />
             )}
           </button>
@@ -185,7 +184,7 @@ export const Header = () => {
                   }}
                 >
                   <Image
-                    src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+                    src={withBasePath("/Images/Logo/ASAI_Logo_web_navi.jpg")}
                     alt="Alfred Schnittke Akademie International"
                     width={110}
                     height={40}

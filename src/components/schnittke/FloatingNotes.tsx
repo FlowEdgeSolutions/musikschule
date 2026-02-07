@@ -21,7 +21,7 @@ export const FloatingNotes = () => {
           key={i}
           initial={{ opacity: 0, y: "100%", x: `${15 + i * 18}%` }}
           animate={{
-            opacity: [0, 0.15, 0.1, 0],
+            opacity: [0, 0.12, 0.08, 0],
             y: ["100%", "-10%"],
             rotate: [0, 20, -15, 10],
           }}
@@ -36,6 +36,7 @@ export const FloatingNotes = () => {
             fontSize: `${28 + i * 8}px`,
             color: tokens.color.gold,
             fontFamily: "serif",
+            mixBlendMode: "multiply",
           }}
         >
           {n}
@@ -44,4 +45,3 @@ export const FloatingNotes = () => {
     </div>
   );
 };
-

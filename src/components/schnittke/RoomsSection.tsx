@@ -5,7 +5,27 @@ import { Section, StaggerContainer, StaggerItem } from "./motion-wrappers";
 import { fonts, tokens } from "./theme";
 
 export const RoomsSection = () => (
-  <section id="raeume" style={{ background: tokens.color.warmWhite, padding: "100px 8%" }}>
+  <section
+    id="raeume"
+    style={{
+      background: tokens.color.deep,
+      padding: "100px 8%",
+      position: "relative",
+      overflow: "hidden",
+    }}
+  >
+    <div
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 0,
+        width: "55%",
+        height: "100%",
+        opacity: 0.05,
+        background: `radial-gradient(circle at 25% 30%, rgba(208,0,0,0.35), transparent 70%)`,
+        pointerEvents: "none",
+      }}
+    />
     <Section>
       <div style={{ textAlign: "center", marginBottom: 60 }}>
         <div className="gold-line" style={{ margin: "0 auto 24px" }} />
@@ -17,7 +37,7 @@ export const RoomsSection = () => (
             fontFamily: fonts.display,
             fontSize: "clamp(28px, 3.5vw, 46px)",
             fontWeight: 500,
-            color: tokens.color.ink,
+            color: tokens.color.warmWhite,
             lineHeight: 1.15,
           }}
         >
@@ -45,10 +65,11 @@ export const RoomsSection = () => (
           <div
             className="room-card"
             style={{
-              background: tokens.color.warmWhite,
-              border: `1px solid rgba(0,0,0,0.12)`,
+              background: `linear-gradient(180deg, ${tokens.color.warmWhite} 0%, ${tokens.color.parchment} 100%)`,
+              border: `1px solid rgba(208,0,0,0.18)`,
               padding: 40,
               height: "100%",
+              boxShadow: "0 26px 80px rgba(0,0,0,0.28)",
             }}
           >
             <div style={{ fontFamily: fonts.display, fontSize: 36, color: tokens.color.gold, opacity: 0.4, marginBottom: 20 }}>

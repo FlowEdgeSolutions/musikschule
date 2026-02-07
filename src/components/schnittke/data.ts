@@ -26,7 +26,7 @@ export const events = [
     title: "Viktor Shenderovich – Lesung",
     category: "Lesung",
     seats: "35 Plätze frei",
-    color: tokens.color.mist,
+    color: tokens.color.ink,
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const events = [
     title: "Polystilistik – Workshop für junge Komponisten",
     category: "Workshop",
     seats: "12 Plätze frei",
-    color: tokens.color.warmWhite,
+    color: tokens.color.slate,
   },
 ] as const;
 

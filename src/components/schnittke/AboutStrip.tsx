@@ -6,7 +6,7 @@ import { fonts, tokens } from "./theme";
 export const AboutStrip = () => (
   <Section
     style={{
-      background: tokens.color.warmWhite,
+      background: tokens.color.deep,
       padding: "100px 8%",
       display: "flex",
       flexWrap: "wrap",
@@ -34,7 +34,7 @@ export const AboutStrip = () => (
           fontFamily: fonts.display,
           fontSize: "clamp(28px, 3.5vw, 46px)",
           fontWeight: 500,
-          color: tokens.color.ink,
+          color: tokens.color.warmWhite,
           lineHeight: 1.15,
           marginBottom: 24,
         }}
@@ -50,7 +50,7 @@ export const AboutStrip = () => (
           fontFamily: fonts.accent,
           fontSize: 19,
           lineHeight: 1.75,
-          color: tokens.color.slate,
+          color: "rgba(255,255,255,0.75)",
           maxWidth: 520,
           fontWeight: 300,
           fontStyle: "italic",
@@ -68,7 +68,9 @@ export const AboutStrip = () => (
       style={{
         flex: "1 1 320px",
         minHeight: 380,
-        background: `linear-gradient(135deg, ${tokens.color.parchment}, #FFFFFF)`,
+        background: `linear-gradient(135deg, ${tokens.color.warmWhite}, ${tokens.color.parchment})`,
+        border: "1px solid rgba(208,0,0,0.22)",
+        boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -100,7 +102,7 @@ export const AboutStrip = () => (
             fontSize: 12,
             letterSpacing: 2.5,
             textTransform: "uppercase",
-            color: tokens.color.mist,
+            color: "rgba(0,0,0,0.55)",
             marginTop: 16,
           }}
         >

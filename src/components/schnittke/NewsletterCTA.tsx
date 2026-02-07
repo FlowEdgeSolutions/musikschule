@@ -13,7 +13,7 @@ export const NewsletterCTA = () => {
   return (
     <Section
       style={{
-        background: `linear-gradient(135deg, ${tokens.color.deep}, #111111)`,
+        background: `linear-gradient(180deg, ${tokens.color.warmWhite} 0%, ${tokens.color.parchment} 55%, ${tokens.color.warmWhite} 100%)`,
         padding: "100px 8%",
         position: "relative",
         overflow: "hidden",
@@ -26,8 +26,21 @@ export const NewsletterCTA = () => {
           top: "-30%",
           width: "50%",
           height: "160%",
-          opacity: 0.04,
-          background: `radial-gradient(circle, ${tokens.color.gold}, transparent 70%)`,
+          opacity: 0.10,
+          background: `radial-gradient(circle, rgba(208,0,0,0.28), transparent 70%)`,
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          right: "-15%",
+          bottom: "-35%",
+          width: "55%",
+          height: "180%",
+          opacity: 0.06,
+          background: `radial-gradient(circle at 60% 60%, rgba(0,0,0,0.22), transparent 70%)`,
+          pointerEvents: "none",
         }}
       />
 
@@ -38,7 +51,7 @@ export const NewsletterCTA = () => {
             fontFamily: fonts.display,
             fontSize: "clamp(26px, 3vw, 40px)",
             fontWeight: 500,
-            color: tokens.color.warmWhite,
+            color: tokens.color.ink,
             lineHeight: 1.2,
             margin: "24px 0",
           }}
@@ -49,7 +62,7 @@ export const NewsletterCTA = () => {
           style={{
             fontFamily: fonts.accent,
             fontSize: 17,
-            color: "rgba(255,255,255,0.65)",
+            color: "rgba(0,0,0,0.62)",
             fontStyle: "italic",
             marginBottom: 40,
             lineHeight: 1.7,
@@ -75,10 +88,10 @@ export const NewsletterCTA = () => {
                 style={{
                   flex: 1,
                   padding: "16px 20px",
-                  background: "rgba(255,255,255,0.06)",
-                  border: `1px solid rgba(255,255,255,0.18)`,
+                  background: "rgba(255,255,255,0.85)",
+                  border: `1px solid rgba(0,0,0,0.16)`,
                   borderRight: "none",
-                  color: tokens.color.warmWhite,
+                  color: tokens.color.ink,
                   fontFamily: fonts.body,
                   fontSize: 14,
                 }}
@@ -90,7 +103,7 @@ export const NewsletterCTA = () => {
                   padding: "16px 28px",
                   background: tokens.color.gold,
                   border: "none",
-                  color: tokens.color.deep,
+                  color: tokens.color.warmWhite,
                   fontFamily: fonts.body,
                   fontSize: 12,
                   fontWeight: 600,
@@ -111,18 +124,18 @@ export const NewsletterCTA = () => {
               transition={{ duration: 0.5 }}
               style={{
                 padding: "20px 32px",
-                border: `1px solid rgba(255,255,255,0.14)`,
-                background: "rgba(208,0,0,0.10)",
+                border: `1px solid rgba(208,0,0,0.22)`,
+                background: "rgba(208,0,0,0.08)",
               }}
             >
-              <p style={{ fontFamily: fonts.accent, fontSize: 17, color: tokens.color.goldLight, fontStyle: "italic" }}>
+              <p style={{ fontFamily: fonts.accent, fontSize: 17, color: tokens.color.accent, fontStyle: "italic" }}>
                 ✓ Bitte bestätigen Sie Ihre Anmeldung über den Link in der E-Mail.
               </p>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <p style={{ fontFamily: fonts.body, fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 16 }}>
+        <p style={{ fontFamily: fonts.body, fontSize: 11, color: "rgba(0,0,0,0.45)", marginTop: 16 }}>
           Kein Spam. Jederzeit abmeldbar. Datenschutzkonform (DSGVO).
         </p>
       </div>
