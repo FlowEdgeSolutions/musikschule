@@ -57,11 +57,11 @@ export default function SchnittkeAkademie() {
           transition: background 0.2s ease;
         }
         .mobile-menu-link:hover {
-          background: rgba(196,163,90,0.08);
+          background: rgba(208,0,0,0.10);
         }
 
         .event-row {
-          border-bottom: 1px solid rgba(196,163,90,0.15);
+          border-bottom: 1px solid rgba(255,255,255,0.12);
           transition: background 0.3s ease;
           cursor: pointer;
         }
@@ -89,7 +89,7 @@ export default function SchnittkeAkademie() {
         }
 
         .shimmer {
-          background: linear-gradient(110deg, transparent 33%, rgba(196,163,90,0.08) 50%, transparent 67%);
+          background: linear-gradient(110deg, transparent 33%, rgba(208,0,0,0.10) 50%, transparent 67%);
           background-size: 300% 100%;
           animation: shimmer 4s infinite;
         }
@@ -112,12 +112,12 @@ export default function SchnittkeAkademie() {
         }
 
         .footer-link {
-          color: rgba(245,240,232,0.4);
+          color: rgba(255,255,255,0.55);
           text-decoration: none;
           transition: color 0.3s;
         }
         .footer-link:hover {
-          color: ${tokens.color.goldLight};
+          color: ${tokens.color.gold};
         }
       `}</style>
 
@@ -134,4 +134,3 @@ export default function SchnittkeAkademie() {
     </>
   );
 }
-

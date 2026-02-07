@@ -26,7 +26,7 @@ export const events = [
     title: "Viktor Shenderovich – Lesung",
     category: "Lesung",
     seats: "35 Plätze frei",
-    color: "#5A7A5A",
+    color: tokens.color.mist,
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const events = [
     title: "Polystilistik – Workshop für junge Komponisten",
     category: "Workshop",
     seats: "12 Plätze frei",
-    color: "#6A5A8A",
+    color: tokens.color.warmWhite,
   },
 ] as const;
 
@@ -45,4 +45,3 @@ export const navLinks = [
   { label: "Räume", href: "#raeume" },
   { label: "Kontakt", href: "#kontakt" },
 ] as const;
-

@@ -1,15 +1,17 @@
 export const tokens = {
   color: {
     ink: "#0A0A0A",
-    parchment: "#F5F0E8",
-    warmWhite: "#FEFCF7",
-    gold: "#C4A35A",
-    goldLight: "#E8D5A0",
-    goldMuted: "rgba(196,163,90,0.12)",
-    slate: "#3A3A3A",
-    mist: "#B8B0A2",
-    deep: "#1A1612",
-    accent: "#8B2500",
+    parchment: "#F7F7F7",
+    warmWhite: "#FFFFFF",
+    // Historical name in this prototype: used as the brand accent color.
+    gold: "#D00000",
+    // Used for light text on dark backgrounds.
+    goldLight: "#FFFFFF",
+    goldMuted: "rgba(208,0,0,0.12)",
+    slate: "#262626",
+    mist: "#BDBDBD",
+    deep: "#0A0A0A",
+    accent: "#7A0000",
   },
 } as const;
 
@@ -18,4 +20,3 @@ export const fonts = {
   body: "'DM Sans', 'Helvetica Neue', sans-serif",
   accent: "'Cormorant Garamond', 'Georgia', serif",
 } as const;
-

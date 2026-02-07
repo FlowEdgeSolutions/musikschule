@@ -1,4 +1,5 @@
-import { Envelope, MapPin, MusicNotes, Phone } from "./icons";
+import Image from "next/image";
+import { Envelope, MapPin, Phone } from "./icons";
 import { fonts, tokens } from "./theme";
 
 export const Footer = () => (
@@ -7,7 +8,7 @@ export const Footer = () => (
     style={{
       background: tokens.color.ink,
       padding: "80px 8% 40px",
-      borderTop: `1px solid rgba(196,163,90,0.1)`,
+      borderTop: `1px solid rgba(208,0,0,0.20)`,
     }}
   >
     <div
@@ -20,29 +21,20 @@ export const Footer = () => (
     >
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-          <div
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: "50%",
-              border: `1px solid ${tokens.color.gold}`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <MusicNotes size={16} color={tokens.color.gold} />
-          </div>
-          <span style={{ fontFamily: fonts.display, fontSize: 16, fontWeight: 600, color: tokens.color.warmWhite }}>
-            Schnittke Akademie
-          </span>
+          <Image
+            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+            alt="Alfred Schnittke Akademie International"
+            width={140}
+            height={52}
+            style={{ height: 52, width: "auto" }}
+          />
         </div>
         <p
           style={{
             fontFamily: fonts.accent,
             fontSize: 15,
             lineHeight: 1.8,
-            color: "rgba(245,240,232,0.4)",
+            color: "rgba(255,255,255,0.65)",
             fontStyle: "italic",
             fontWeight: 300,
             maxWidth: 280,
@@ -64,7 +56,7 @@ export const Footer = () => (
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
               {item.icon}
-              <span style={{ fontFamily: fonts.body, fontSize: 14, color: "rgba(245,240,232,0.5)" }}>
+              <span style={{ fontFamily: fonts.body, fontSize: 14, color: "rgba(255,255,255,0.70)" }}>
                 {item.text}
               </span>
             </div>
@@ -88,7 +80,7 @@ export const Footer = () => (
 
     <div
       style={{
-        borderTop: `1px solid rgba(196,163,90,0.08)`,
+        borderTop: `1px solid rgba(255,255,255,0.08)`,
         paddingTop: 24,
         display: "flex",
         justifyContent: "space-between",
@@ -96,13 +88,12 @@ export const Footer = () => (
         gap: 12,
       }}
     >
-      <span style={{ fontFamily: fonts.body, fontSize: 12, color: "rgba(245,240,232,0.2)" }}>
+      <span style={{ fontFamily: fonts.body, fontSize: 12, color: "rgba(255,255,255,0.35)" }}>
         © 2026 Alfred Schnittke Akademie International. Alle Rechte vorbehalten.
       </span>
-      <span style={{ fontFamily: fonts.body, fontSize: 12, color: "rgba(245,240,232,0.15)" }}>
+      <span style={{ fontFamily: fonts.body, fontSize: 12, color: "rgba(255,255,255,0.25)" }}>
         Max-Brauer-Allee 24 · Hamburg-Altona
       </span>
     </div>
   </footer>
 );
-

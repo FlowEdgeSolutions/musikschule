@@ -68,7 +68,7 @@ export const AboutStrip = () => (
       style={{
         flex: "1 1 320px",
         minHeight: 380,
-        background: `linear-gradient(135deg, ${tokens.color.parchment}, #EDE5D8)`,
+        background: `linear-gradient(135deg, ${tokens.color.parchment}, #FFFFFF)`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -80,7 +80,7 @@ export const AboutStrip = () => (
         style={{
           position: "absolute",
           inset: 0,
-          background: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(196,163,90,0.04) 35px, rgba(196,163,90,0.04) 36px)`,
+          background: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(208,0,0,0.05) 35px, rgba(208,0,0,0.05) 36px)`,
         }}
       />
       <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
@@ -110,4 +110,3 @@ export const AboutStrip = () => (
     </div>
   </Section>
 );
-

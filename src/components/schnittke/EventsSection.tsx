@@ -56,7 +56,7 @@ export const EventsSection = () => (
           style={{
             padding: "12px 28px",
             background: "transparent",
-            border: `1px solid rgba(196,163,90,0.25)`,
+            border: `1px solid rgba(255,255,255,0.22)`,
             color: tokens.color.goldLight,
             fontFamily: fonts.body,
             fontSize: 12,
@@ -141,4 +141,3 @@ export const EventsSection = () => (
     </StaggerContainer>
   </section>
 );
-

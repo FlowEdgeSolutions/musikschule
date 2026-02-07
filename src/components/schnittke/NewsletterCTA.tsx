@@ -13,7 +13,7 @@ export const NewsletterCTA = () => {
   return (
     <Section
       style={{
-        background: `linear-gradient(135deg, ${tokens.color.deep}, #2A2218)`,
+        background: `linear-gradient(135deg, ${tokens.color.deep}, #111111)`,
         padding: "100px 8%",
         position: "relative",
         overflow: "hidden",
@@ -43,13 +43,13 @@ export const NewsletterCTA = () => {
             margin: "24px 0",
           }}
         >
-          Bleiben Sie <span style={{ fontStyle: "italic", color: tokens.color.goldLight }}>informiert</span>
+          Bleiben Sie <span style={{ fontStyle: "italic", color: tokens.color.gold }}>informiert</span>
         </h2>
         <p
           style={{
             fontFamily: fonts.accent,
             fontSize: 17,
-            color: "rgba(245,240,232,0.5)",
+            color: "rgba(255,255,255,0.65)",
             fontStyle: "italic",
             marginBottom: 40,
             lineHeight: 1.7,
@@ -76,7 +76,7 @@ export const NewsletterCTA = () => {
                   flex: 1,
                   padding: "16px 20px",
                   background: "rgba(255,255,255,0.06)",
-                  border: `1px solid rgba(196,163,90,0.2)`,
+                  border: `1px solid rgba(255,255,255,0.18)`,
                   borderRight: "none",
                   color: tokens.color.warmWhite,
                   fontFamily: fonts.body,
@@ -111,8 +111,8 @@ export const NewsletterCTA = () => {
               transition={{ duration: 0.5 }}
               style={{
                 padding: "20px 32px",
-                border: `1px solid rgba(196,163,90,0.3)`,
-                background: "rgba(196,163,90,0.08)",
+                border: `1px solid rgba(255,255,255,0.14)`,
+                background: "rgba(208,0,0,0.10)",
               }}
             >
               <p style={{ fontFamily: fonts.accent, fontSize: 17, color: tokens.color.goldLight, fontStyle: "italic" }}>
@@ -122,11 +122,10 @@ export const NewsletterCTA = () => {
           )}
         </AnimatePresence>
 
-        <p style={{ fontFamily: fonts.body, fontSize: 11, color: "rgba(245,240,232,0.25)", marginTop: 16 }}>
+        <p style={{ fontFamily: fonts.body, fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 16 }}>
           Kein Spam. Jederzeit abmeldbar. Datenschutzkonform (DSGVO).
         </p>
       </div>
     </Section>
   );
 };
-

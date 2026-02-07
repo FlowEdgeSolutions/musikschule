@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { navLinks } from "./data";
-import { List, MapPin, MusicNotes, Phone, X } from "./icons";
+import { List, MapPin, Phone, X } from "./icons";
 import { fonts, tokens } from "./theme";
 
 export const Header = () => {
@@ -45,11 +47,9 @@ export const Header = () => {
           right: 0,
           zIndex: 50,
           padding: scrolled ? "14px 40px" : "24px 40px",
-          background: scrolled ? "rgba(254,252,247,0.92)" : "transparent",
+          background: scrolled ? "rgba(255,255,255,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled
-            ? `1px solid rgba(196,163,90,0.15)`
-            : "none",
+          borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "none",
           transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
           display: "flex",
           alignItems: "center",
@@ -57,35 +57,25 @@ export const Header = () => {
           gap: 16,
         }}
       >
-        <motion.div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: "50%",
-              border: `1.5px solid ${tokens.color.gold}`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flex: "0 0 auto",
-            }}
-          >
-            <MusicNotes size={18} color={tokens.color.gold} />
-          </div>
-          <div
-            style={{
-              fontFamily: fonts.display,
-              fontSize: 17,
-              fontWeight: 600,
-              letterSpacing: 0.5,
-              color: scrolled ? tokens.color.ink : tokens.color.warmWhite,
-              transition: "color 0.5s",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Schnittke Akademie
-          </div>
-        </motion.div>
+        <Link
+          href="/"
+          aria-label="Alfred Schnittke Akademie International"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 14,
+            textDecoration: "none",
+          }}
+        >
+          <Image
+            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+            alt="Alfred Schnittke Akademie International"
+            width={110}
+            height={40}
+            priority
+            style={{ height: 40, width: "auto" }}
+          />
+        </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <nav className="desktop-nav" aria-label="Hauptnavigation">
@@ -116,9 +106,9 @@ export const Header = () => {
               width: 44,
               height: 44,
               borderRadius: 999,
-              border: `1px solid rgba(196,163,90,0.25)`,
+              border: `1px solid rgba(208,0,0,0.30)`,
               background: scrolled
-                ? "rgba(254,252,247,0.92)"
+                ? "rgba(255,255,255,0.92)"
                 : "rgba(26,22,18,0.35)",
               backdropFilter: "blur(10px)",
               alignItems: "center",
@@ -170,8 +160,8 @@ export const Header = () => {
                 right: 0,
                 height: "100%",
                 width: "min(420px, 92vw)",
-                background: `linear-gradient(180deg, rgba(26,22,18,0.92) 0%, rgba(10,10,10,0.92) 100%)`,
-                borderLeft: `1px solid rgba(196,163,90,0.18)`,
+                background: `linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(0,0,0,0.92) 100%)`,
+                borderLeft: `1px solid rgba(208,0,0,0.18)`,
                 padding: 24,
                 display: "flex",
                 flexDirection: "column",
@@ -194,34 +184,13 @@ export const Header = () => {
                     minWidth: 0,
                   }}
                 >
-                  <div
-                    style={{
-                      width: 34,
-                      height: 34,
-                      borderRadius: "50%",
-                      border: `1.5px solid ${tokens.color.gold}`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flex: "0 0 auto",
-                    }}
-                  >
-                    <MusicNotes size={16} color={tokens.color.gold} />
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: fonts.display,
-                      fontSize: 16,
-                      fontWeight: 600,
-                      color: tokens.color.warmWhite,
-                      letterSpacing: 0.4,
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    Schnittke Akademie
-                  </div>
+                  <Image
+                    src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+                    alt="Alfred Schnittke Akademie International"
+                    width={110}
+                    height={40}
+                    style={{ height: 40, width: "auto" }}
+                  />
                 </div>
 
                 <button
@@ -232,7 +201,7 @@ export const Header = () => {
                     width: 42,
                     height: 42,
                     borderRadius: 999,
-                    border: `1px solid rgba(196,163,90,0.22)`,
+                    border: `1px solid rgba(255,255,255,0.12)`,
                     background: "rgba(255,255,255,0.02)",
                     display: "inline-flex",
                     alignItems: "center",
@@ -240,14 +209,14 @@ export const Header = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <X size={20} color={tokens.color.goldLight} />
+                  <X size={20} color={tokens.color.warmWhite} />
                 </button>
               </div>
 
               <div
                 style={{
                   height: 1,
-                  background: "rgba(196,163,90,0.18)",
+                  background: "rgba(255,255,255,0.10)",
                   marginTop: 4,
                 }}
               />
@@ -278,7 +247,7 @@ export const Header = () => {
 
               <div
                 style={{
-                  borderTop: "1px solid rgba(196,163,90,0.14)",
+                  borderTop: "1px solid rgba(255,255,255,0.10)",
                   paddingTop: 16,
                 }}
               >
@@ -289,7 +258,7 @@ export const Header = () => {
                       style={{
                         fontFamily: fonts.body,
                         fontSize: 13,
-                        color: "rgba(245,240,232,0.55)",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
                       Max-Brauer-Allee 24, 22765 Hamburg
@@ -301,7 +270,7 @@ export const Header = () => {
                       style={{
                         fontFamily: fonts.body,
                         fontSize: 13,
-                        color: "rgba(245,240,232,0.55)",
+                        color: "rgba(255,255,255,0.75)",
                       }}
                     >
                       (040) 447531

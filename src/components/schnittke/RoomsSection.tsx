@@ -46,7 +46,7 @@ export const RoomsSection = () => (
             className="room-card"
             style={{
               background: tokens.color.warmWhite,
-              border: `1px solid rgba(196,163,90,0.2)`,
+              border: `1px solid rgba(0,0,0,0.12)`,
               padding: 40,
               height: "100%",
             }}
@@ -82,4 +82,3 @@ export const RoomsSection = () => (
     </StaggerContainer>
   </section>
 );
-

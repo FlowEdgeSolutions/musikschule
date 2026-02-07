@@ -26,9 +26,9 @@ export const Hero = () => {
             position: "absolute",
             inset: 0,
             background: `
-              radial-gradient(ellipse at 20% 50%, rgba(26,22,18,0.75) 0%, transparent 70%),
-              radial-gradient(ellipse at 80% 20%, rgba(139,37,0,0.15) 0%, transparent 50%),
-              linear-gradient(180deg, #1A1612 0%, #2A2420 40%, #1A1612 100%)
+              radial-gradient(ellipse at 18% 55%, rgba(0,0,0,0.82) 0%, transparent 70%),
+              radial-gradient(ellipse at 78% 18%, rgba(208,0,0,0.18) 0%, transparent 55%),
+              linear-gradient(180deg, #000000 0%, #0A0A0A 45%, #000000 100%)
             `,
           }}
         />
@@ -100,7 +100,7 @@ export const Hero = () => {
         >
           Alfred Schnittke
           <br />
-          <span style={{ fontStyle: "italic", fontWeight: 400, color: tokens.color.goldLight }}>
+          <span style={{ fontStyle: "italic", fontWeight: 400, color: tokens.color.gold }}>
             Akademie
           </span>{" "}
           International
@@ -114,7 +114,7 @@ export const Hero = () => {
             fontFamily: fonts.accent,
             fontSize: "clamp(18px, 2vw, 24px)",
             fontStyle: "italic",
-            color: "rgba(245,240,232,0.6)",
+            color: "rgba(255,255,255,0.65)",
             marginTop: 28,
             maxWidth: 520,
             lineHeight: 1.6,
@@ -165,7 +165,7 @@ export const Hero = () => {
               fontWeight: 400,
               letterSpacing: 2,
               textTransform: "uppercase",
-              border: `1px solid rgba(196,163,90,0.3)`,
+              border: `1px solid rgba(255,255,255,0.28)`,
               cursor: "pointer",
             }}
           >
@@ -196,7 +196,7 @@ export const Hero = () => {
             fontFamily: fonts.body,
             fontSize: 10,
             letterSpacing: 3,
-            color: "rgba(245,240,232,0.3)",
+            color: "rgba(255,255,255,0.35)",
             textTransform: "uppercase",
           }}
         >
@@ -215,4 +215,3 @@ export const Hero = () => {
     </div>
   );
 };
-
