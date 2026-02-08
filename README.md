@@ -20,6 +20,37 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## GitHub Pages (GitHub Actions)
+
+Empfohlen: GitHub Repo `Settings` -> `Pages` -> `Source` = `GitHub Actions`.
+
+Der Workflow liegt hier: `.github/workflows/deploy.yml` und deployed bei Push auf `main`.
+
+## GitHub Pages (Deploy from branch, optional)
+
+Wichtig: Bei **"Deploy from a branch"** baut GitHub dein Next.js-Projekt nicht. Du musst die **statischen Build-Dateien** (HTML/CSS/JS) selbst committen.
+
+### Variante A (einfach): `main` + `/docs`
+
+1. GitHub Repo: `Settings` -> `Pages`
+2. `Source`: `Deploy from a branch`
+3. `Branch`: `main`
+4. `Folder`: `/docs`
+
+Lokal im Repo:
+
+```powershell
+cd schnittke-akademie
+npm run pages:build-docs
+git add docs
+git commit -m "Publish GitHub Pages"
+git push
+```
+
+### Wenn GitHub nach einer "Lizenz" fragt
+
+Wenn das Repo **privat** ist, ist GitHub Pages je nach Plan **nicht kostenlos**. Das laesst sich durch "Deploy from a branch" nicht umgehen: entweder Repo **public** machen oder Plan upgraden.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
