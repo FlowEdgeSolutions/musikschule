@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build-docs": "node scripts/publish-pages-docs.mjs",
     "start": "next start",
     "lint": "eslint"
   },

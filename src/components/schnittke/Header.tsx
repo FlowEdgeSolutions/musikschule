@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { navLinks } from "./data";
 import { List, MapPin, Phone, X } from "./icons";
 import { fonts, tokens } from "./theme";
-import { withBasePath } from "./withBasePath";
 
 export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,7 +68,7 @@ export const Header = () => {
           }}
         >
           <Image
-            src={withBasePath("/Images/Logo/ASAI_Logo_web_navi.jpg")}
+            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
             alt="Alfred Schnittke Akademie International"
             width={110}
             height={40}
@@ -184,7 +183,7 @@ export const Header = () => {
                   }}
                 >
                   <Image
-                    src={withBasePath("/Images/Logo/ASAI_Logo_web_navi.jpg")}
+                    src="/Images/Logo/ASAI_Logo_web_navi.jpg"
                     alt="Alfred Schnittke Akademie International"
                     width={110}
                     height={40}

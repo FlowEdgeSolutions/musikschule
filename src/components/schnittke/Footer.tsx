@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Envelope, MapPin, Phone } from "./icons";
 import { fonts, tokens } from "./theme";
-import { withBasePath } from "./withBasePath";
 
 export const Footer = () => (
   <footer
@@ -23,7 +22,7 @@ export const Footer = () => (
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
           <Image
-            src={withBasePath("/Images/Logo/ASAI_Logo_web_navi.jpg")}
+            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
             alt="Alfred Schnittke Akademie International"
             width={140}
             height={52}
