@@ -1,9 +1,10 @@
 "use client";
 
+import type { SiteContent } from "@/lib/cms/types";
 import { Section } from "./motion-wrappers";
 import { fonts, tokens } from "./theme";
 
-export const AboutStrip = () => (
+export const AboutStrip = ({ site }: { site: SiteContent }) => (
   <Section
     style={{
       background: tokens.color.deep,
@@ -27,7 +28,7 @@ export const AboutStrip = () => (
           fontWeight: 500,
         }}
       >
-        Über die Akademie
+        {site.aboutKicker}
       </p>
       <h2
         style={{
@@ -39,10 +40,10 @@ export const AboutStrip = () => (
           marginBottom: 24,
         }}
       >
-        Musik studieren
+        {site.aboutTitleLine1}
         <br />
         <span style={{ fontStyle: "italic", color: tokens.color.gold }}>
-          unter einem neuen Akzent
+          {site.aboutTitleAccent}
         </span>
       </h2>
       <p
@@ -56,11 +57,7 @@ export const AboutStrip = () => (
           fontStyle: "italic",
         }}
       >
-        Die Alfred Schnittke Akademie International ist eine von der
-        Kulturbehörde anerkannte private Musikakademie in Hamburg-Altona. Seit
-        1987 bilden wir junge Musiker in Gesang und Instrumentalspiel aus – mit
-        dem Schwerpunkt auf zeitgenössischer Musik und einem individuellen
-        Studienplan für jeden Studierenden.
+        {site.aboutLead}
       </p>
     </div>
 

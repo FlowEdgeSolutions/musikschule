@@ -2,12 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import type { SiteContent } from "@/lib/cms/types";
 import { ArrowRight } from "./icons";
 import { MagneticButton } from "./motion-wrappers";
 import { FloatingNotes } from "./FloatingNotes";
 import { fonts, tokens } from "./theme";
 
-export const Hero = () => {
+export const Hero = ({ site }: { site: SiteContent }) => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -35,7 +36,6 @@ export const Hero = () => {
 
         <FloatingNotes />
 
-        {/* Decorative staff lines */}
         <div style={{ position: "absolute", left: "5%", top: "30%", opacity: 0.04 }}>
           {[0, 1, 2, 3, 4].map((i) => (
             <div key={i} style={{ width: 300, height: 1, background: tokens.color.gold, marginBottom: 12 }} />
@@ -81,7 +81,7 @@ export const Hero = () => {
             fontWeight: 400,
           }}
         >
-          Private Musikakademie · Hamburg-Altona · Seit 1987
+          {site.heroEyebrow}
         </motion.p>
 
         <motion.h1
@@ -98,12 +98,12 @@ export const Hero = () => {
             letterSpacing: -1,
           }}
         >
-          Alfred Schnittke
+          {site.heroTitleLine1}
           <br />
           <span style={{ fontStyle: "italic", fontWeight: 400, color: tokens.color.gold }}>
-            Akademie
+            {site.heroTitleAccent}
           </span>{" "}
-          International
+          {site.heroTitleLine2}
         </motion.h1>
 
         <motion.p
@@ -121,7 +121,7 @@ export const Hero = () => {
             fontWeight: 300,
           }}
         >
-          Wo zeitgenössische Musik auf Tradition trifft – Studium, Konzerte und Meisterkurse in einer hanseatischen Villa
+          {site.heroSubtitle}
         </motion.p>
 
         <motion.div
@@ -175,7 +175,6 @@ export const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

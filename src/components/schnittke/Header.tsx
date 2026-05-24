@@ -68,12 +68,17 @@ export const Header = () => {
           }}
         >
           <Image
-            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+            src="/Images/Logo/ASAI_Logo_web_navi_transparent.webp"
             alt="Alfred Schnittke Akademie International"
-            width={110}
-            height={40}
+            width={384}
+            height={140}
             priority
-            style={{ height: 40, width: "auto" }}
+            style={{
+              height: scrolled ? 42 : 48,
+              width: "auto",
+              maxWidth: "min(176px, 42vw)",
+              transition: "height 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
           />
         </Link>
 
@@ -142,7 +147,7 @@ export const Header = () => {
               position: "fixed",
               inset: 0,
               zIndex: 200,
-              background: "rgba(10,10,10,0.35)",
+              background: "rgba(45,45,45,0.42)",
               backdropFilter: "blur(14px)",
             }}
           >
@@ -158,7 +163,7 @@ export const Header = () => {
                 right: 0,
                 height: "100%",
                 width: "min(420px, 92vw)",
-                background: `linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(0,0,0,0.92) 100%)`,
+                background: `linear-gradient(180deg, rgba(45,45,45,0.97) 0%, rgba(45,45,45,0.94) 100%)`,
                 borderLeft: `1px solid rgba(208,0,0,0.18)`,
                 padding: 24,
                 display: "flex",
@@ -183,11 +188,11 @@ export const Header = () => {
                   }}
                 >
                   <Image
-                    src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+                    src="/Images/Logo/ASAI_Logo_web_navi_transparent.webp"
                     alt="Alfred Schnittke Akademie International"
-                    width={110}
-                    height={40}
-                    style={{ height: 40, width: "auto" }}
+                    width={384}
+                    height={140}
+                    style={{ height: 44, width: "auto", maxWidth: "min(176px, 52vw)" }}
                   />
                 </div>
 

@@ -6,7 +6,7 @@ export const Footer = () => (
   <footer
     id="kontakt"
     style={{
-      background: tokens.color.ink,
+      background: tokens.color.deep,
       padding: "80px 8% 40px",
       borderTop: `1px solid rgba(208,0,0,0.20)`,
     }}
@@ -22,11 +22,11 @@ export const Footer = () => (
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
           <Image
-            src="/Images/Logo/ASAI_Logo_web_navi.jpg"
+            src="/Images/Logo/ASAI_Logo_web_footer_light.webp"
             alt="Alfred Schnittke Akademie International"
-            width={140}
-            height={52}
-            style={{ height: 52, width: "auto" }}
+            width={384}
+            height={140}
+            style={{ height: 64, width: "auto", maxWidth: "100%" }}
           />
         </div>
         <p

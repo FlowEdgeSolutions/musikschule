@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #2d2d2d;
     --foreground: #ededed;
   }
 }
@@ -22,5 +22,457 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+.admin-login,
+.admin-shell {
+  min-height: 100vh;
+  background: #f4f1ed;
+  color: #171717;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+.admin-login {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+.admin-login__panel {
+  width: min(440px, 100%);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 22px;
+  padding: 32px;
+}
+
+.admin-login__eyebrow,
+.admin-shell__eyebrow {
+  color: #d00000;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.admin-login h1,
+.admin-shell h1,
+.admin-panel h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+.admin-login h1,
+.admin-shell h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.05;
+}
+
+.admin-login__copy {
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.admin-login__error {
+  color: #b00020;
+  font-size: 13px;
+}
+
+.admin-login label,
+.admin-panel label,
+.admin-ticket label {
+  color: rgba(0, 0, 0, 0.62);
+  display: grid;
+  font-size: 12px;
+  gap: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.admin-login input,
+.admin-login button,
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select,
+.admin-panel button,
+.admin-shell__logout,
+.admin-toolbar button {
+  font: inherit;
+}
+
+.admin-login input,
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  color: #171717;
+  padding: 12px 14px;
+  text-transform: none;
+  width: 100%;
+}
+
+.admin-panel textarea {
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.admin-login button,
+.admin-panel button,
+.admin-toolbar__actions button,
+.admin-shell__logout {
+  background: #d00000;
+  border: 1px solid #d00000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+}
+
+.admin-login button:disabled,
+.admin-panel button:disabled,
+.admin-toolbar__actions button:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.admin-shell {
+  padding: 32px;
+}
+
+.admin-shell__header,
+.admin-toolbar,
+.admin-panel__heading,
+.admin-row {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.admin-shell__header {
+  margin: 0 auto 28px;
+  max-width: 1180px;
+}
+
+.admin-shell__logout {
+  background: transparent;
+  color: #171717;
+}
+
+.admin-dashboard {
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.admin-stats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.admin-stats div,
+.admin-panel,
+.admin-toolbar {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.admin-stats div {
+  color: rgba(0, 0, 0, 0.58);
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+}
+
+.admin-stats span {
+  color: #171717;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-toolbar {
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.admin-toolbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-toolbar nav button {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #171717;
+}
+
+.admin-toolbar nav button.is-active {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.admin-toolbar__actions {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.admin-toolbar__actions p {
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 13px;
+}
+
+.admin-panel {
+  padding: 24px;
+}
+
+.admin-panel h2 {
+  font-size: 28px;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.admin-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.admin-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.admin-row label {
+  min-width: 160px;
+}
+
+.admin-check {
+  align-items: center;
+  display: flex !important;
+  gap: 8px !important;
+  min-width: auto !important;
+}
+
+.admin-check input {
+  width: auto;
+}
+
+.admin-danger {
+  background: transparent !important;
+  border-color: rgba(176, 0, 32, 0.35) !important;
+  color: #b00020 !important;
+}
+
+.admin-ticket {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.4fr 1.2fr 1fr 170px;
+  padding: 18px 0;
+}
+
+.admin-ticket div {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-ticket span,
+.admin-ticket small,
+.admin-ticket a,
+.admin-empty {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.ticket-modal {
+  align-items: center;
+  background: rgba(45, 45, 45, 0.5);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  z-index: 300;
+}
+
+.ticket-modal__panel {
+  background: #fff;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.22);
+  display: grid;
+  gap: 16px;
+  max-width: 620px;
+  padding: 28px;
+  width: 100%;
+}
+
+.ticket-modal__panel h3 {
+  color: #171717;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.ticket-modal__panel p:first-child {
+  color: #d00000;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ticket-modal__grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ticket-modal input,
+.ticket-modal textarea {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  color: #171717;
+  font: inherit;
+  padding: 13px 14px;
+  width: 100%;
+}
+
+.ticket-modal textarea {
+  resize: vertical;
+}
+
+.ticket-modal__status {
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 13px;
+}
+
+.ticket-modal__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.ticket-modal__actions button {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+}
+
+.ticket-modal__actions button:last-child {
+  background: #d00000;
+  border-color: #d00000;
+  color: #fff;
+}
+
+.news-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.news-card {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: grid;
+  min-height: 100%;
+}
+
+.news-card__image {
+  aspect-ratio: 16 / 10;
+  background: #f4f1ed;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-card__image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.news-card__body {
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+}
+
+.news-card__body p:first-child {
+  color: #d00000;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.news-card__body h3 {
+  color: #171717;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.news-card__body span,
+.news-card__body p:last-child {
+  color: rgba(0, 0, 0, 0.58);
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 820px) {
+  .admin-shell {
+    padding: 18px;
+  }
+
+  .admin-shell__header,
+  .admin-toolbar,
+  .admin-panel__heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-stats,
+  .admin-grid--two,
+  .admin-ticket {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-toolbar__actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ticket-modal__grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,6 +1,7 @@
 export const tokens = {
   color: {
     ink: "#0A0A0A",
+    anthracite: "#2D2D2D",
     parchment: "#F7F7F7",
     warmWhite: "#FFFFFF",
     // Historical name in this prototype: used as the brand accent color.
@@ -10,7 +11,7 @@ export const tokens = {
     goldMuted: "rgba(208,0,0,0.12)",
     slate: "#262626",
     mist: "#BDBDBD",
-    deep: "#0A0A0A",
+    deep: "#2D2D2D",
     accent: "#7A0000",
   },
 } as const;
