@@ -1,0 +1,18 @@
+{$SITE_DOMAIN}, www.{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	# Hochgeladene Bilder liefert /api/media aus (siehe src/lib/cms/uploads.ts).
+	# Der Dateiname enthält einen Zeitstempel, eine URL zeigt also dauerhaft auf
+	# dieselbe Datei — langes Caching im Browser ist unbedenklich.
+	@media path /api/media/*
+	header @media Cache-Control "public, max-age=2592000, immutable"
+
+	reverse_proxy web:3000
+
+	log {
+		output file /data/access.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}

@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Schnittke Akademie
 
-## Getting Started
+Website und Admin-Bereich der Alfred Schnittke Akademie International.
 
-First, run the development server:
+Eine einzige Next.js-Anwendung: Seiten, API-Routen, Admin-UI und Datenzugriff
+liegen in derselben TypeScript-Codebasis. Als Datenbank dient PostgreSQL.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Struktur
+
+```text
+schnittke-akademie/
+  frontend/      # Next.js: Website, Admin-UI, API-Routen, Datenbank-Layer
+  infra/ionos/   # Docker Compose, Caddy und PostgreSQL für den IONOS-VPS
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Lokale Entwicklung
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Voraussetzungen: Node 22+ und Docker (nur für PostgreSQL).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```powershell
+# PostgreSQL starten
+docker run -d --name schnittke-db -p 5432:5432 `
+  -e POSTGRES_DB=schnittke -e POSTGRES_USER=schnittke -e POSTGRES_PASSWORD=schnittke `
+  postgres:17-alpine
 
-## Learn More
+cd frontend
+npm install
+Copy-Item .env.example .env      # DATABASE_URL passt bereits
+npm run db:migrate
+npm run db:seed
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Die Seite läuft auf `http://localhost:3000`, der Admin-Bereich auf `/admin`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Für den Login einen Passwort-Hash erzeugen und in `.env` eintragen:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```powershell
+npm run admin:hash -- "mein-langes-passwort"
+```
 
-## Deploy on Vercel
+Dazu ein `ADMIN_SESSION_SECRET` setzen (beliebige lange Zufallszeichenkette).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## npm-Skripte
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Skript | Zweck |
+|---|---|
+| `npm run dev` | Entwicklungsserver |
+| `npm run build` | Produktions-Build (`output: standalone`) |
+| `npm run lint` | ESLint |
+| `npm run db:generate` | Migration aus `src/lib/db/schema.ts` erzeugen |
+| `npm run db:migrate` | Migrationen anwenden |
+| `npm run db:seed` | Standardinhalte in eine leere Datenbank schreiben |
+| `npm run db:studio` | Drizzle Studio |
+| `npm run admin:hash` | Wert für `ADMIN_PASSWORD_HASH` erzeugen |
+
+## Architektur in Kürze
+
+- **Inhalte** liegen in PostgreSQL (`site_content`, `events`, `posts`,
+  `ticket_requests`, `media_assets`), Schema in `frontend/src/lib/db/schema.ts`.
+- **Zugriff** ausschließlich über `frontend/src/lib/cms/store.ts` — Seiten und
+  API-Routen kennen die Datenbank nicht direkt.
+- **Uploads** landen in `frontend/uploads/` (in Produktion ein Docker-Volume,
+  Pfad über `UPLOAD_DIR`) und werden über `/api/media/<datei>` ausgeliefert.
+  Bewusst nicht unter `public/`: der Standalone-Server liefert dort nur aus,
+  was schon beim Build vorhanden war.
+- **Admin-Login** über ein Passwort (scrypt-Hash) und ein signiertes,
+  httpOnly-Session-Cookie mit 8 Stunden Laufzeit.
+
+## Deployment
+
+Der Server ist ein IONOS-VPS mit Debian 13. Die vollständige Anleitung steht in
+[infra/ionos/DEPLOY.md](infra/ionos/DEPLOY.md).
+
+Kurzfassung auf dem Server:
+
+```bash
+cd infra/ionos
+cp .env.example .env    # Werte eintragen
+docker compose up -d --build
+```
+
+Damit laufen PostgreSQL, die Anwendung und Caddy (automatisches HTTPS).

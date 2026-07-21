@@ -1,0 +1,1 @@
+"""Schnittke Akademie backend package."""

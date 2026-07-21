@@ -1,0 +1,229 @@
+"use client";
+
+import Image from "next/image";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import type { SiteContent } from "@/lib/cms/types";
+import { ArrowRight } from "./icons";
+import { MagneticButton } from "./motion-wrappers";
+import { FloatingNotes } from "./FloatingNotes";
+import { fonts, tokens } from "./theme";
+
+export const Hero = ({ site }: { site: SiteContent }) => {
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+
+  return (
+    <div ref={heroRef} style={{ position: "relative", height: "92svh", minHeight: 560, maxHeight: 820, overflow: "hidden" }}>
+      <motion.div style={{ opacity: heroOpacity, scale: heroScale, position: "absolute", inset: 0 }}>
+        <Image
+          src="/Images/WebsiteBilder/ASAI_Saal_5-980x408.jpg"
+          alt="Konzertsaal der Alfred Schnittke Akademie"
+          fill
+          priority
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            filter: "saturate(0.82) contrast(1.08)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `
+              linear-gradient(90deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.56) 48%, rgba(10,10,10,0.16) 100%),
+              linear-gradient(180deg, rgba(10,10,10,0.22) 0%, rgba(10,10,10,0.10) 45%, rgba(10,10,10,0.46) 100%)
+            `,
+          }}
+        />
+
+        <FloatingNotes />
+
+        <div style={{ position: "absolute", left: "5%", top: "30%", opacity: 0.04 }}>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div key={i} style={{ width: 300, height: 1, background: tokens.color.warmWhite, marginBottom: 12 }} />
+          ))}
+        </div>
+        <div style={{ position: "absolute", right: "8%", bottom: "20%", opacity: 0.04 }}>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div key={i} style={{ width: 200, height: 1, background: tokens.color.warmWhite, marginBottom: 12 }} />
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.div
+        style={{
+          y: heroY,
+          position: "relative",
+          zIndex: 2,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "0 8%",
+        }}
+      >
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: 60 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ height: 1, background: tokens.color.gold, marginBottom: 32 }}
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          style={{
+            fontFamily: fonts.body,
+            fontSize: 13,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.78)",
+            marginBottom: 20,
+            fontWeight: 400,
+          }}
+        >
+          {site.heroEyebrow}
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            fontFamily: fonts.display,
+            fontSize: "clamp(38px, 6vw, 82px)",
+            fontWeight: 500,
+            color: tokens.color.warmWhite,
+            lineHeight: 1.08,
+            maxWidth: 800,
+            letterSpacing: 0,
+            textShadow: "0 22px 60px rgba(0,0,0,0.32)",
+          }}
+        >
+          {site.heroTitleLine1}
+          <br />
+          <span style={{ fontStyle: "italic", fontWeight: 400, color: tokens.color.gold }}>
+            {site.heroTitleAccent}
+          </span>{" "}
+          {site.heroTitleLine2}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+          style={{
+            fontFamily: fonts.accent,
+            fontSize: "clamp(18px, 2vw, 24px)",
+            fontStyle: "italic",
+            color: "rgba(255,255,255,0.78)",
+            marginTop: 28,
+            maxWidth: 520,
+            lineHeight: 1.6,
+            fontWeight: 300,
+          }}
+        >
+          {site.heroSubtitle}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.6 }}
+          style={{ display: "flex", gap: 16, marginTop: 48, flexWrap: "wrap" }}
+        >
+          <MagneticButton
+            className="shimmer"
+            onClick={() =>
+              document.getElementById("veranstaltungen")?.scrollIntoView({ behavior: "smooth" })
+            }
+            style={{
+              padding: "16px 36px",
+              background: tokens.color.gold,
+              color: tokens.color.warmWhite,
+              fontFamily: fonts.body,
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              boxShadow: "0 18px 45px rgba(208,0,0,0.22)",
+            }}
+          >
+            Veranstaltungen <ArrowRight size={16} color={tokens.color.warmWhite} />
+          </MagneticButton>
+
+          <MagneticButton
+            onClick={() => document.getElementById("raeume")?.scrollIntoView({ behavior: "smooth" })}
+            style={{
+              padding: "16px 36px",
+              background: "transparent",
+              color: tokens.color.warmWhite,
+              fontFamily: fonts.body,
+              fontSize: 13,
+              fontWeight: 400,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              border: `1px solid rgba(255,255,255,0.44)`,
+              cursor: "pointer",
+            }}
+          >
+            Räume mieten
+          </MagneticButton>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5 }}
+        style={{
+          position: "absolute",
+          bottom: 40,
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 8,
+          zIndex: 2,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: fonts.body,
+            fontSize: 10,
+            letterSpacing: 3,
+            color: "rgba(255,255,255,0.58)",
+            textTransform: "uppercase",
+          }}
+        >
+          Entdecken
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            width: 1,
+            height: 40,
+            background: `linear-gradient(to bottom, ${tokens.color.gold}, transparent)`,
+          }}
+        />
+      </motion.div>
+    </div>
+  );
+};
