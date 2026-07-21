@@ -42,12 +42,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# backend
-/backend/.venv/
-/backend/dev.db
-/backend/dev.db-*
-/backend/uploads/*
-!/backend/uploads/.gitkeep
-__pycache__/
-*.py[cod]
