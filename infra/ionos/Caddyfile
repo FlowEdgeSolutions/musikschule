@@ -1,4 +1,4 @@
-{$SITE_DOMAIN}, www.{$SITE_DOMAIN} {
+{$SITE_ADDRESSES} {
 	encode zstd gzip
 
 	# Hochgeladene Bilder liefert /api/media aus (siehe src/lib/cms/uploads.ts).

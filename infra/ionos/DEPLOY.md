@@ -1,4 +1,4 @@
-# Deployment auf dem IONOS VPS (Debian 13)
+# Deployment auf dem IONOS VPS (Ubuntu 24.04)
 
 Alles läuft in Containern: PostgreSQL, die Next.js-App und Caddy als Reverse Proxy
 mit automatischem Let's-Encrypt-Zertifikat.
@@ -9,13 +9,12 @@ Beim Domain-Anbieter setzen, **bevor** Caddy startet — sonst schlägt die
 Zertifikatsausstellung fehl:
 
 ```text
-A     schnittke-akademie.de       <IPv4 des VPS>
-AAAA  schnittke-akademie.de       <IPv6 des VPS>
-A     www.schnittke-akademie.de   <IPv4 des VPS>
-AAAA  www.schnittke-akademie.de   <IPv6 des VPS>
+A     musikschule.flowedge.com    217.160.93.32
 ```
 
-Prüfen: `dig +short schnittke-akademie.de`
+Prüfen: `dig +short musikschule.flowedge.com`
+
+Jede Adresse in `SITE_ADDRESSES` (siehe `.env`) braucht einen solchen Eintrag.
 
 ## 2. Server vorbereiten
 
@@ -44,15 +43,15 @@ usermod -aG sudo schnittke
 
 ## 3. Docker installieren
 
-Offizielles Docker-Repository für Debian 13 (trixie):
+Offizielles Docker-Repository für Ubuntu:
 
 ```bash
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 chmod a+r /etc/apt/keyrings/docker.asc
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] \
-https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" \
+https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" \
   > /etc/apt/sources.list.d/docker.list
 
 apt update
@@ -109,7 +108,7 @@ Caddy holt das Zertifikat beim ersten Aufruf der Domain — das dauert einige Se
 Die Datenbank ist nach dem ersten Start leer. Die Website zeigt dann die
 Standardinhalte aus `frontend/src/lib/cms/default-data.ts`.
 
-Unter `https://schnittke-akademie.de/admin` einloggen und einmal **Speichern** —
+Unter `https://musikschule.flowedge.com/admin` einloggen und einmal **Speichern** —
 damit werden die Inhalte in die Datenbank geschrieben und sind ab dann redaktionell
 pflegbar.
 

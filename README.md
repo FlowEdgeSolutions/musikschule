@@ -69,7 +69,7 @@ Dazu ein `ADMIN_SESSION_SECRET` setzen (beliebige lange Zufallszeichenkette).
 
 ## Deployment
 
-Der Server ist ein IONOS-VPS mit Debian 13. Die vollständige Anleitung steht in
+Der Server ist ein IONOS-VPS mit Ubuntu 24.04 (musikschule.flowedge.com). Die vollständige Anleitung steht in
 [infra/ionos/DEPLOY.md](infra/ionos/DEPLOY.md).
 
 Kurzfassung auf dem Server:
