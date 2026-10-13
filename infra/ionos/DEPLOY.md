@@ -72,7 +72,7 @@ cp .env.example .env
 Werte erzeugen und in `.env` eintragen:
 
 ```bash
-openssl rand -base64 24    # POSTGRES_PASSWORD
+openssl rand -hex 24    # POSTGRES_PASSWORD
 openssl rand -base64 32    # ADMIN_SESSION_SECRET
 ```
 
